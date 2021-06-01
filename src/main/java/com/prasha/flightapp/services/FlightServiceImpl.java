@@ -29,4 +29,10 @@ public class FlightServiceImpl implements FlightService {
 		return flight;
 	}
 
+	@Override
+	public List<Flight> getFlights() {
+		List<Flight> allFlights = flightRepo.findAll();
+		return allFlights;
+	}
+
 }
