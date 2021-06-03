@@ -35,19 +35,16 @@ public class UserController {
 	}
 
 	@RequestMapping("/verifyLogin")
-	public String verifyLogin(@RequestParam("email") String email, 
-			@RequestParam("password") String password, ModelMap modelmap) {
-		User foundUser = userService.login(email);
+	public String verifyLogin(@RequestParam("email") String email, @RequestParam("password") String password,
+			ModelMap modelmap) {
+		User foundUser = userService.verifyLogin(email, password);
 		if (foundUser != null) {
-			if (foundUser.getEmail().equals(email) && foundUser.getPassword().equals(password)) {
-				modelmap.addAttribute("loginSuccess", foundUser.getFirstName());
-				return "findFlights";
-			} else {
-				modelmap.addAttribute("loginFailed", "Email or Password invalid");
-				return "login";
-			}
+			modelmap.addAttribute("loginSuccess", foundUser.getFirstName());
+			return "findFlights";
+		} else {
+			modelmap.addAttribute("loginFailed", "Email or Password invalid");
+			return "login";
 		}
-		modelmap.addAttribute("loginFailedNull", "Email or Password invalid");
-		return "login";
+
 	}
 }

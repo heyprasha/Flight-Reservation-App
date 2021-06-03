@@ -6,6 +6,6 @@ public interface UserService {
 
 	void signUp(User user);
 
-	User login(String email);
+	User verifyLogin(String email, String password);
 
 }
