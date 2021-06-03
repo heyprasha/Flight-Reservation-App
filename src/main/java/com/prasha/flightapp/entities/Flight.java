@@ -1,6 +1,7 @@
 package com.prasha.flightapp.entities;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -12,7 +13,7 @@ public class Flight extends AbstractEntity {
 	private String operatingAirlines;
 	private String departureCity;
 	private String arrivalCity;
-	private Date dateOfDeparture;
+	private LocalDate dateOfDeparture;
 	private Timestamp estimatedDepartureTime;
 
 	public String getFlightNumber() {
@@ -47,11 +48,11 @@ public class Flight extends AbstractEntity {
 		this.arrivalCity = arrivalCity;
 	}
 
-	public Date getDateOfDeparture() {
+	public LocalDate getDateOfDeparture() {
 		return dateOfDeparture;
 	}
 
-	public void setDateOfDeparture(Date dateOfDeparture) {
+	public void setDateOfDeparture(LocalDate dateOfDeparture) {
 		this.dateOfDeparture = dateOfDeparture;
 	}
 

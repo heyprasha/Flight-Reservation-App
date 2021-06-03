@@ -1,5 +1,6 @@
 package com.prasha.flightapp.services;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -17,7 +18,7 @@ public class FlightServiceImpl implements FlightService {
 	private FlightRepository flightRepo;
 
 	@Override
-	public List<Flight> findFlights(String from, String to, Date dateOfDeparture) {
+	public List<Flight> findFlights(String from, String to, LocalDate dateOfDeparture) {
 		List<Flight> findFlight = flightRepo.findFlight(from, to, dateOfDeparture);
 		return findFlight;
 	}

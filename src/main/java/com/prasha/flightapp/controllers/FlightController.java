@@ -1,5 +1,6 @@
 package com.prasha.flightapp.controllers;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +21,10 @@ public class FlightController {
 	private FlightService flightService;
 	
 	@RequestMapping("/findFlights")
-	public String findFlights(@RequestParam("from") String from, @RequestParam("to") String to, @RequestParam("dateOfDeparture") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateOfDeparture, ModelMap modelMap) {
+	public String findFlights(@RequestParam("from") String from, @RequestParam("to") String to,
+			@RequestParam("dateOfDeparture") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate dateOfDeparture,
+			ModelMap modelMap) {
+		System.out.println(dateOfDeparture);
 		if (from != null && to != null && dateOfDeparture != null) {
 			List<Flight> findFlights = flightService.findFlights(from, to, dateOfDeparture);
 			if (!findFlights.isEmpty()) {
