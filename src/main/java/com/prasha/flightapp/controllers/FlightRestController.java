@@ -11,7 +11,7 @@ import com.prasha.flightapp.entities.Flight;
 import com.prasha.flightapp.services.FlightService;
 
 @RestController
-@RequestMapping("/flights")
+@RequestMapping("/api")
 public class FlightRestController {
 
 	@Autowired
